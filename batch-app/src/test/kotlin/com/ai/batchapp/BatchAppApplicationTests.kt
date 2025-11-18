@@ -1,13 +1,13 @@
-package com.kuku.ai
+package com.ai.batchapp
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class AiApplicationTests {
+class BatchAppApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+    }
 
 }

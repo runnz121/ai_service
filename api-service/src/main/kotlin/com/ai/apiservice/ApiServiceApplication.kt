@@ -1,11 +1,11 @@
-package com.kuku.ai
+package com.ai.apiservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class AiApplication
+class ApiServiceApplication
 
 fun main(args: Array<String>) {
-	runApplication<AiApplication>(*args)
+    runApplication<ApiServiceApplication>(*args)
 }
