@@ -12,8 +12,12 @@ class KafkaProducer(
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    fun sendMessage(topic: String, key: String, message: String) {
-        val future: CompletableFuture<SendResult<String, String>> = kafkaTemplate.send(topic, key, message)
+    fun sendMessage(topic: String, key: String?, message: String) {
+        val future: CompletableFuture<SendResult<String, String>> = if (key != null) {
+            kafkaTemplate.send(topic, key, message)
+        } else {
+            kafkaTemplate.send(topic, message)
+        }
 
         future.whenComplete { result, ex ->
             if (ex == null) {
