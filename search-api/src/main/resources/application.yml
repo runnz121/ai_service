@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: search-api
+
+  elasticsearch:
+    uris: http://localhost:9200
+    connection-timeout: 5s
+    socket-timeout: 30s
+
+server:
+  port: 8081
+
+logging:
+  level:
+    com.ai.searchapi: DEBUG
+    org.springframework.data.elasticsearch: DEBUG
