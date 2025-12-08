@@ -70,6 +70,43 @@ services:
       timeout: 10s
       retries: 5
 
+  search-api:
+    build:
+      context: .
+      dockerfile: search-api/Dockerfile
+    container_name: search-api
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
+    networks:
+      - kafka-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8081/api/products/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  fastmcp-server:
+    build:
+      context: ./fastmcp-server
+      dockerfile: Dockerfile
+    container_name: fastmcp-server
+    depends_on:
+      - search-api
+    ports:
+      - "8082:8082"
+    networks:
+      - kafka-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8082/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
 networks:
   kafka-network:
     driver: bridge
