@@ -1,0 +1,105 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "number_of_replicas": 1,
+      "analysis": {
+        "analyzer": {
+          "nori_analyzer": {
+            "type": "nori"
+          }
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "email": {
+        "type": "keyword"
+      },
+      "username": {
+        "type": "text",
+        "analyzer": "nori",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "status": {
+        "type": "keyword"
+      },
+      "fullName": {
+        "type": "text",
+        "analyzer": "nori"
+      },
+      "phoneNumber": {
+        "type": "keyword"
+      },
+      "address": {
+        "type": "text",
+        "analyzer": "nori"
+      },
+      "city": {
+        "type": "keyword"
+      },
+      "country": {
+        "type": "keyword"
+      },
+      "postalCode": {
+        "type": "keyword"
+      },
+      "birthDate": {
+        "type": "date",
+        "format": "strict_date"
+      },
+      "gender": {
+        "type": "keyword"
+      },
+      "profileImageUrl": {
+        "type": "keyword"
+      },
+      "bio": {
+        "type": "text",
+        "analyzer": "nori"
+      },
+      "searchText": {
+        "type": "text",
+        "analyzer": "nori"
+      },
+      "searchCount": {
+        "type": "integer"
+      },
+      "purchaseCount": {
+        "type": "integer"
+      },
+      "lastActivityAt": {
+        "type": "date",
+        "format": "strict_date_optional_time_nanos||epoch_millis"
+      },
+      "preferredCategories": {
+        "type": "keyword"
+      },
+      "createdAt": {
+        "type": "date",
+        "format": "strict_date_optional_time_nanos||epoch_millis"
+      },
+      "updatedAt": {
+        "type": "date",
+        "format": "strict_date_optional_time_nanos||epoch_millis"
+      },
+      "indexedAt": {
+        "type": "date",
+        "format": "strict_date_optional_time_nanos||epoch_millis"
+      },
+      "deletedAt": {
+        "type": "date",
+        "format": "strict_date_optional_time_nanos||epoch_millis"
+      }
+    }
+  }
+}

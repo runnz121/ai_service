@@ -1,0 +1,124 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "number_of_replicas": 1,
+      "analysis": {
+        "analyzer": {
+          "nori_analyzer": {
+            "type": "nori"
+          }
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "nori",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "category": {
+        "type": "keyword"
+      },
+      "brand": {
+        "type": "keyword"
+      },
+      "sku": {
+        "type": "keyword"
+      },
+      "price": {
+        "type": "double"
+      },
+      "discountPrice": {
+        "type": "double"
+      },
+      "stock": {
+        "type": "integer"
+      },
+      "status": {
+        "type": "keyword"
+      },
+      "rating": {
+        "type": "double"
+      },
+      "reviewCount": {
+        "type": "integer"
+      },
+      "description": {
+        "type": "text",
+        "analyzer": "nori"
+      },
+      "longDescription": {
+        "type": "text",
+        "analyzer": "nori"
+      },
+      "specifications": {
+        "type": "object",
+        "enabled": true
+      },
+      "features": {
+        "type": "keyword"
+      },
+      "dimensions": {
+        "type": "keyword"
+      },
+      "weight": {
+        "type": "double"
+      },
+      "manufacturer": {
+        "type": "keyword"
+      },
+      "originCountry": {
+        "type": "keyword"
+      },
+      "warrantyPeriod": {
+        "type": "integer"
+      },
+      "tags": {
+        "type": "keyword"
+      },
+      "searchText": {
+        "type": "text",
+        "analyzer": "nori"
+      },
+      "metaTitle": {
+        "type": "keyword"
+      },
+      "metaDescription": {
+        "type": "text",
+        "analyzer": "standard"
+      },
+      "metaKeywords": {
+        "type": "keyword"
+      },
+      "imageUrls": {
+        "type": "keyword"
+      },
+      "thumbnailUrl": {
+        "type": "keyword"
+      },
+      "createdAt": {
+        "type": "date",
+        "format": "strict_date_optional_time_nanos||epoch_millis"
+      },
+      "updatedAt": {
+        "type": "date",
+        "format": "strict_date_optional_time_nanos||epoch_millis"
+      },
+      "indexedAt": {
+        "type": "date",
+        "format": "strict_date_optional_time_nanos||epoch_millis"
+      }
+    }
+  }
+}
